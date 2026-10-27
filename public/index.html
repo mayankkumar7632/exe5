@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Registration</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <h1>Employee Registration</h1>
+      <p>Add and manage employee details</p>
+    </header>
+
+    <div id="alert" class="alert hidden"></div>
+
+    <div class="layout">
+      <section class="card form-card">
+        <h2>Add New Employee</h2>
+        <form id="employeeForm" autocomplete="off">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="e.g. John Doe" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="e.g. john@company.com" />
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required placeholder="e.g. 9876543210" />
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="department">Department</label>
+              <select id="department" name="department" required>
+                <option value="">Select department</option>
+                <option>HR</option>
+                <option>Engineering</option>
+                <option>Sales</option>
+                <option>Marketing</option>
+                <option>Finance</option>
+                <option>Operations</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="position">Position</label>
+              <input type="text" id="position" name="position" required placeholder="e.g. Software Engineer" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="salary">Salary ($)</label>
+              <input type="number" id="salary" name="salary" required min="0" step="0.01" placeholder="e.g. 50000" />
+            </div>
+            <div class="field">
+              <label for="dateOfJoining">Date of Joining</label>
+              <input type="date" id="dateOfJoining" name="dateOfJoining" required />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Save Employee</button>
+        </form>
+      </section>
+
+      <section class="card table-card">
+        <h2>Registered Employees <span id="count" class="badge">0</span></h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Department</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Joining</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+        <p id="emptyMsg" class="empty hidden">No employees yet. Add your first employee using the form.</p>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
